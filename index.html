@@ -27,6 +27,38 @@
     <link rel="stylesheet" href="./wedding/css/loader.css">
     <link rel="stylesheet" href="./wedding/css/navigation.css">
     <link rel="stylesheet" href="./wedding/css/style.css">
+    <style>
+	
+.star-shape {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: #ffc107;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    border: 2px solid black;
+    animation: blink 10s infinite;
+}
+
+.star-shape p {
+    margin: 5px 0;
+}
+
+@keyframes blink {
+    0%, 50%, 100% {
+        opacity: 1;
+    }
+    25%, 75% {
+        opacity: 0;
+    }
+}
+    </style>
 </head>
 <body data-spy="scroll" data-target=".navbar-nav" data-offset="100">
 
@@ -439,7 +471,10 @@
 
 
 <!--testimonial sec start-->
-
+    <div class="star-shape">
+        <p>LIEU  ABIDJAN YOPOUGON</p>
+        <p>19 H 25</p>
+    </div>
 <!--testimonial sec end-->
 
 
