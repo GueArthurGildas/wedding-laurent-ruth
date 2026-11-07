@@ -19,7 +19,7 @@
     --purple-mid:#7a34b0;
     --gold:#d4af37;
     --gold-light:#f3d98a;
-    --bordeaux:#7a1328;
+    --bordeaux:#d46fc7;
     --bordeaux-light:#a51d38;
     --cream:#fdf8ef;
     --white:#ffffff;
@@ -72,10 +72,29 @@
   .flourish{color:var(--gold);font-size:20px;letter-spacing:10px;opacity:.9;}
 
   .eyebrow{
+    display:inline-block;
     margin-top:14px;
-    text-transform:uppercase;letter-spacing:3.5px;font-size:clamp(13px,3vw,16px);
-    color:var(--purple-deep);font-weight:700;
+    text-transform:uppercase;letter-spacing:3px;font-size:clamp(12.5px,3vw,14.5px);
+    color:var(--white);font-weight:700;
+    background:linear-gradient(135deg,var(--bordeaux),var(--bordeaux-light));
+    padding:11px 28px;
+    border-radius:40px;
+    box-shadow:0 10px 26px rgba(233, 141, 221, 0.774), inset 0 1px 0 rgba(230, 140, 140, 0.63);
+    transition:transform .35s var(--ease), box-shadow .35s var(--ease);
   }
+  .eyebrow:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(39, 229, 243, 0.5), inset 0 1px 0 rgba(255,255,255,.15);}
+
+  .invite-message{margin:6px 0 28px;text-align:center;}
+  .invite-message p{margin-bottom:13px;}
+  .invite-message p:last-child{margin-bottom:0;}
+  .im-italic{
+    font-style:italic;color:var(--purple-deep);font-weight:600;
+    font-size:clamp(16.5px,4vw,19px);line-height:1.55;
+  }
+  .im-body{
+    color:#3d2d4a;font-size:clamp(15px,3.7vw,17px);line-height:1.65;
+  }
+  .im-small{color:var(--purple-mid);font-size:clamp(14px,3.4vw,16px);}
 
   .names{
     font-family:'Alex Brush', cursive;
@@ -228,6 +247,12 @@
   </div>
 
   <div class="date-badge">Samedi 21 Novembre 2026</div>
+
+  <div class="invite-message">
+    <p class="im-italic">Nous serions ravis de vous compter parmi nous pour célébrer notre union !</p>
+    <p class="im-body">Afin de faciliter l'organisation de cet heureux événement, merci de renseigner votre nom et de confirmer votre présence via le formulaire ci-dessous.</p>
+    <p class="im-italic im-small">Cela ne vous prendra qu'une minute. Merci !</p>
+  </div>
 
   <div class="divider"></div>
 
