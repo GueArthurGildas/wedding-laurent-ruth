@@ -1,633 +1,294 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <!-- Meta Tags -->
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
-    <!-- Author -->
-    <meta name="Gue Arthur" content="Wedding">
-    <!-- description -->
-    <meta name="description" content="Site Professionnel du mariage de Lauren et Ruth">
-    <!-- keywords -->
-    <meta name="keywords" content="">
-    <!-- Page Title -->
-    <title>Wedding | Lauren & Ruth</title>
-    <!-- Favicon -->
-    <link rel="icon" href="./wedding/img/favicon.ico">
-    <!--css links-->
-    <link rel="stylesheet" href="./vendor/css/bundle.min.css">
-    <link rel="stylesheet" href="./vendor/css/cubeportfolio.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arthur &amp; Dina — Mariage le 21 Novembre 2026</title>
+<meta name="description" content="Arthur &amp; Dina vous invitent à leur mariage le 21 novembre 2026 à Port-Bouët. Confirmez votre présence.">
 
-    <link rel="stylesheet" href="./vendor/css/wow.css">
-    <link rel="stylesheet" href="./vendor/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="./vendor/css/mediaelementplayer.min.css">
-    <link rel="stylesheet" href="./wedding/css/line-awesome.min.css">
-    <link rel="stylesheet" href="./wedding/css/layers.css">
-    <link rel="stylesheet" href="./wedding/css/settings.css">
-    <link rel="stylesheet" href="./wedding/css/loader.css">
-    <link rel="stylesheet" href="./wedding/css/navigation.css">
-    <link rel="stylesheet" href="./wedding/css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Playfair+Display:wght@500;600;700&family=Alex+Brush&display=swap" rel="stylesheet">
 
-    <style>
-	
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%9B%3C/text%3E%3C/svg%3E">
 
+<style>
+  :root{
+    --purple-deep:#2d0a42;
+    --purple:#5b1f8a;
+    --purple-mid:#7a34b0;
+    --gold:#d4af37;
+    --gold-light:#f3d98a;
+    --bordeaux:#7a1328;
+    --bordeaux-light:#a51d38;
+    --cream:#fdf8ef;
+    --white:#ffffff;
+    --ink:#2a1c33;
+    --ease:cubic-bezier(.22,1,.36,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+  body{
+    font-family:'Cormorant Garamond', serif;
+    min-height:100svh;
+    width:100%;
+    background:
+      radial-gradient(circle at 15% 10%, rgba(212,175,55,.20), transparent 45%),
+      radial-gradient(circle at 85% 90%, rgba(212,175,55,.16), transparent 45%),
+      linear-gradient(160deg, var(--purple-deep), var(--purple) 55%, var(--purple-mid));
+    color:var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    padding:clamp(16px,4vw,48px) clamp(14px,3vw,24px);
+    overflow-x:hidden;
+  }
+  .script{font-family:'Alex Brush', cursive;}
+  a{color:inherit;}
 
-.star-shape p {
-    margin: 5px 0;
-}
+  /* subtle floating gold dots, no storm */
+  .dots{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+  .dot{
+    position:absolute;bottom:-6%;width:5px;height:5px;border-radius:50%;
+    background:var(--gold-light);opacity:.5;
+    animation:rise linear infinite;
+  }
+  @keyframes rise{to{transform:translateY(-112vh);}}
 
-@keyframes blink {
-    0%, 50%, 100% {
-        opacity: 1;
-    }
-    25%, 75% {
-        opacity: 0;
-    }
-}
-    </style>
+  /* ---------- Card ---------- */
+  .card{
+    position:relative;z-index:1;
+    width:100%;max-width:640px;
+    background:var(--cream);
+    border-radius:26px;
+    border:1px solid rgba(212,175,55,.45);
+    box-shadow:0 30px 80px rgba(20,5,32,.45);
+    padding:clamp(32px,6vw,56px) clamp(22px,6vw,48px) clamp(30px,5vw,48px);
+    text-align:center;
+    opacity:0;transform:translateY(24px);
+    animation:cardIn .9s var(--ease) .1s forwards;
+    transition:box-shadow .5s var(--ease);
+  }
+  @keyframes cardIn{to{opacity:1;transform:translateY(0);}}
+
+  .flourish{color:var(--gold);font-size:20px;letter-spacing:10px;opacity:.9;}
+
+  .eyebrow{
+    margin-top:14px;
+    text-transform:uppercase;letter-spacing:3.5px;font-size:clamp(13px,3vw,16px);
+    color:var(--purple-deep);font-weight:700;
+  }
+
+  .names{
+    font-family:'Alex Brush', cursive;
+    font-size:clamp(46px,11vw,60px);
+    line-height:1;
+    color:var(--purple-deep);
+    margin:10px 0 2px;
+  }
+  .names .amp{color:var(--gold);}
+
+  .photo-frame{
+    margin:26px auto 22px;
+    width:100%;
+    max-width:460px;
+    border-radius:18px;
+    overflow:hidden;
+    background:var(--white);
+    border:3px solid var(--gold);
+    box-shadow:0 14px 34px rgba(45,10,66,.25);
+    opacity:0;transform:scale(.94);
+    animation:photoIn 1s var(--ease) .45s forwards;
+  }
+  @keyframes photoIn{to{opacity:1;transform:scale(1);}}
+  .photo-frame img{
+    width:100%;
+    height:clamp(340px,60vw,540px);
+    object-fit:contain;
+    object-position:center;
+    display:block;
+  }
+
+  .date-badge{
+    display:inline-block;
+    font-family:'Playfair Display',serif;
+    font-weight:700;
+    font-size:clamp(16px,4vw,21px);
+    letter-spacing:1px;
+    color:var(--white);
+    background:linear-gradient(135deg,var(--purple),var(--purple-mid));
+    padding:clamp(10px,2.4vw,13px) clamp(18px,5vw,28px);
+    border-radius:40px;
+    margin-bottom:24px;
+  }
+
+  .divider{
+    width:60px;height:1px;background:var(--gold);margin:4px auto 20px;position:relative;
+  }
+  .divider::before{
+    content:'❖';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    background:var(--cream);padding:0 8px;color:var(--gold);font-size:14px;
+  }
+
+  .programme{
+    display:flex;flex-direction:column;gap:14px;margin-bottom:26px;text-align:left;
+  }
+  .prog-row{
+    display:flex;align-items:center;gap:clamp(10px,3vw,16px);
+    background:var(--white);border:1px solid rgba(212,175,55,.35);
+    border-radius:14px;padding:clamp(13px,3vw,16px) clamp(14px,3.5vw,18px);
+  }
+  .prog-icon{font-size:clamp(22px,5vw,26px);flex-shrink:0;}
+  .prog-time{
+    font-family:'Playfair Display',serif;font-weight:700;color:#b5862a;
+    font-size:clamp(17px,4vw,19px);white-space:nowrap;
+  }
+  .prog-text{font-size:clamp(15.5px,3.8vw,17.5px);color:var(--ink);line-height:1.4;}
+  .prog-text b{color:var(--purple-deep);}
+
+  .rsvp-heading{
+    font-family:'Playfair Display',serif;color:var(--purple-deep);
+    font-size:clamp(22px,4vw,26px);font-weight:700;margin-bottom:16px;
+  }
+
+  .rsvp-instruction{
+    display:flex;align-items:flex-start;gap:12px;text-align:left;
+    background:#fdf0f2;
+    border:2.5px solid var(--bordeaux);
+    box-shadow:0 0 0 4px rgba(122,19,40,.1), 0 10px 26px rgba(122,19,40,.18);
+    border-radius:14px;padding:18px 20px;margin-bottom:22px;
+    font-size:clamp(16px,3.6vw,18px);color:var(--bordeaux);font-weight:800;line-height:1.5;
+    animation:pulseBorder 2.6s ease-in-out infinite;
+  }
+  .rsvp-instruction span.ic{font-size:24px;flex-shrink:0;}
+  .rsvp-instruction strong{color:var(--bordeaux-light);text-decoration:underline;text-underline-offset:3px;}
+  @keyframes pulseBorder{
+    0%,100%{box-shadow:0 0 0 4px rgba(122,19,40,.1), 0 10px 26px rgba(122,19,40,.18);}
+    50%{box-shadow:0 0 0 8px rgba(122,19,40,.16), 0 10px 30px rgba(122,19,40,.26);}
+  }
+
+  .form-wrap{
+    border-radius:14px;overflow:hidden;border:1px solid rgba(212,175,55,.4);
+    background:var(--white);
+  }
+  .form-wrap iframe{
+    width:100%;border:none;display:block;min-height:620px;
+  }
+
+  footer{margin-top:28px;color:var(--purple-deep);font-size:clamp(13.5px,3.4vw,15px);font-weight:500;}
+  footer .script{font-size:clamp(24px,6vw,28px);color:var(--purple);display:block;margin-bottom:4px;}
+
+  /* ---------- Responsive fine-tuning ---------- */
+  @media(max-width:360px){
+    .flourish{font-size:16px;letter-spacing:6px;}
+    .form-wrap iframe{min-height:560px;}
+  }
+
+  @media(min-width:641px) and (max-width:1024px){
+    body{padding:40px 24px;}
+    .card{max-width:620px;}
+  }
+
+  @media(min-width:1025px){
+    body{padding:56px 24px;}
+    .card{max-width:660px;}
+    .card:hover{box-shadow:0 36px 100px rgba(20,5,32,.5);}
+  }
+
+  @media(orientation:landscape) and (max-height:500px){
+    body{align-items:flex-start;padding-top:20px;}
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    .card,.photo-frame,.dot,.rsvp-instruction{animation:none !important;}
+  }
+
+  @media print{
+    body{background:var(--white);padding:0;}
+    .dots{display:none;}
+    .card{box-shadow:none;max-width:100%;}
+    .form-wrap{display:none;}
+  }
+</style>
 </head>
-<body data-spy="scroll" data-target=".navbar-nav" data-offset="100">
+<body>
 
+<div class="dots" id="dots"></div>
 
-<!--loading start-->
-<div class="loader">
-<div class="inner-loader">
-    <div class="loader1"></div>
-</div>
-</div>
-<!--loading end-->
+<!-- ======================= CONFIG =======================
+  Pour modifier le lien du formulaire, la date limite, etc.,
+  voir l'objet CONFIG dans le <script> en bas de page.
+========================================================= -->
 
-<!--bottom Arrow start-->
-<div class="bottom-arr scroll-top-arrow">
-    <i class="las la-angle-up"></i>
-</div>
-<!--bottom Arrow end-->
-<!--header sec end-->
+<main class="card">
+  <div class="flourish">❖ ❖ ❖</div>
+  <p class="eyebrow">Ils se disent oui</p>
+  <h1 class="names">Arthur <span class="amp">&amp;</span> Dina</h1>
 
-<!--Header Start-->
-<header class="head-sec cursor-light">
+  <div class="photo-frame">
+    <img src="assets/couple.jpg" alt="Arthur et Dina">
+  </div>
 
-    <!--Navigation-->
-    <nav class="navbar navbar-top-default navbar-expand-lg navbar-simple nav-line">
-        <div class="container">
-            <a href="#home" title="Logo" class="logo scroll navbar-brand">
-              
-            </a>
-            <!--Nav Links-->
-            <div class="collapse navbar-collapse" id="megaone">
+  <div class="date-badge">Samedi 21 Novembre 2026</div>
 
-                           </div>
-            <!--Side Menu Button-->
+  <div class="divider"></div>
 
-
-        </div>
-
-        <div class="navigation-toggle">
-            <ul class="slider-social toggle-btn">
-                <li class="animated-wrap">
-                    <a class="animated-element" href="javascript:void(0);" id="sidemenu_toggle">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <!--Side Nav-->
-    <div class="side-menu hidden">
-
-        <span class="btn-close" id="btn_sideNavClose"><i></i><i></i></span>
-        <span class="mega-title">Laurent & Ruth</span>
-        <div class="inner-wrapper">
-            <nav class="side-nav w-100">
-                
-            </nav>
-
-            <div class="side-footer w-100">
-                                <p>&copy; 2024. Fait avec 🫶🏽 par Gue Arthur</p>
-            </div>
-        </div>
+  <div class="programme">
+    <div class="prog-row">
+      <span class="prog-icon">💍</span>
+      <span class="prog-text"><span class="prog-time">10h30</span><br><b>Cérémonie civile</b> — Mairie de Port-Bouët</span>
     </div>
-    <a id="close_side_menu" href="javascript:void(0);"></a>
-    <!-- End side menu -->
-
-</header>
-<div class="aimated-cursor">
-    <div class="cursor">
-        <div class="cursor-loader"></div>
+    <div class="prog-row">
+      <span class="prog-icon">⛪</span>
+      <span class="prog-text"><span class="prog-time">13h30</span><br><b>Cérémonie religieuse</b> — École Sainte Anne de Port-Bouët (à côté du Phare de Port-Bouët)</span>
     </div>
-</div>
-<!--Header End-->
-
-<!--slider sec start-->
-<div class="slider-sec cursor-light" id="slider-sec">
-    <div id="rev_slider_1_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="slider-shop" data-source="gallery" style="background:rgba(255,255,255,0);padding:0px;">
-        <!-- START REVOLUTION SLIDER 5.4.8.1 fullscreen mode -->
-        <div id="rev_slider_1_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.4.8.1">
-            <ul>
-                <!-- SLIDE  -->
-                <li data-index="rs-3" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb="assets/100x50_44515-slider-bg-3.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Slide 3" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
-
-                    <!-- MAIN IMAGE -->
-                    <img src="wedding/img/slider.jpg"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" alt="slider-image" data-no-retina>
-                    <div class="slider-overlay"></div>
-
-
-                    <!-- LAYER NR. 11 -->
-                    <div class="tp-caption   tp-resizeme rs-parallaxlevel-1"
-                         id="slide-3-layer-1"
-                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                         data-y="['middle','middle','middle','middle']" data-voffset="['-80','-75','-74','-74']"
-                         data-fontsize="['18','18','16','16']"
-                         data-width="none"
-                         data-height="none"
-                         data-whitespace="nowrap"
-                         data-type="text"
-                         data-responsive_offset="on"
-                         data-frames='[{"delay":10,"speed":2000,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":280,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
-                         data-textAlign="['inherit','inherit','inherit','inherit']"
-                         data-paddingtop="[0,0,0,0]"
-                         data-paddingright="[0,0,0,0]"
-                         data-paddingbottom="[0,0,0,0]"
-                         data-paddingleft="[0,0,0,0]"
-
-                         style="z-index: 5;font-size: 16px;white-space: nowrap;letter-spacing: 2.5px;line-height: 22px; font-weight: 500; color: #eaeaef;font-family: 'Montserrat', sans-serif;text-transform: uppercase">Joyeux mariage</div>
-
-                    <!-- LAYER NR. 12 -->
-                    <div class="tp-caption   tp-resizeme rs-parallaxlevel-3"
-                         id="slide-3-layer-2"
-                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                         data-y="['middle','middle','middle','middle']" data-voffset="['-8','-12','-12','-12']"
-                         data-fontsize="['80','70','60','50']"
-                         data-width="none"
-                         data-height="none"
-                         data-whitespace="nowrap"
-
-                         data-type="text"
-                         data-responsive_offset="on"
-
-                         data-frames='[{"delay":10,"speed":2000,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power2.easeOut"},{"delay":"wait","speed":280,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
-                         data-textAlign="['inherit','inherit','inherit','inherit']"
-                         data-paddingtop="[0,0,0,0]"
-                         data-paddingright="[0,0,0,0]"
-                         data-paddingbottom="[0,0,0,0]"
-                         data-paddingleft="[0,0,0,0]"
-
-                         style="z-index: 6; white-space: nowrap; font-size: 60px; line-height: 16px; font-weight: 500; color: #ffffff; letter-spacing: 0px;font-family: 'Dancing Script', cursive;">Laurent & Ruth</div>
-
-                    <!-- LAYER NR. 13 -->
-                    <div class="tp-caption   tp-resizeme rs-parallaxlevel-2"
-                         id="slide-3-layer-3"
-                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                         data-y="['middle','middle','middle','middle']" data-voffset="['70','55','55','55']"
-                         data-fontsize="['22','20','20','20']"
-                         data-width="none"
-                         data-height="none"
-                         data-whitespace="nowrap"
-
-                         data-type="text"
-                         data-responsive_offset="on"
-
-                         data-frames='[{"delay":10,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":280,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
-                         data-textAlign="['inherit','inherit','inherit','inherit']"
-                         data-paddingtop="[0,0,0,0]"
-                         data-paddingright="[0,0,0,0]"
-                         data-paddingbottom="[0,0,0,0]"
-                         data-paddingleft="[0,0,0,0]"
-
-                         style="z-index: 7; white-space: nowrap; font-size: 18px; line-height: 40px; font-weight: 400; color: #eaeaef; font-family:'Montserrat', sans-serif;letter-spacing: 1px;text-transform: uppercase;"> NOUS NOUS MARIONS</div>
-
-                </li>
-
-
-                <li data-index="rs-2" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb="assets/100x50_44515-slider-bg-3.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Slide 3" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
-
-                    <!-- MAIN IMAGE -->
-                    <img src="wedding/img/slider1.jpg"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" alt="slider-image" data-no-retina>
-                    <div class="slider-overlay"></div>
-
-
-                    <!-- LAYER NR. 11 -->
-                    <div class="tp-caption  tp-resizeme  rs-parallaxlevel-1"
-                         id="slide-2-layer-1"
-                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                         data-y="['middle','middle','middle','middle']" data-voffset="['-80','-75','-74','-74']"
-                         data-fontsize="['18','16','16','16']"
-                         data-width="none"
-                         data-height="none"
-                         data-whitespace="nowrap"
-
-                         data-type="text"
-                         data-responsive_offset="on"
-
-                         data-frames='[{"delay":10,"speed":2000,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":280,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
-                         data-textAlign="['inherit','inherit','inherit','inherit']"
-                         data-paddingtop="[0,0,0,0]"
-                         data-paddingright="[0,0,0,0]"
-                         data-paddingbottom="[0,0,0,0]"
-                         data-paddingleft="[0,0,0,0]"
-
-                         style="z-index: 5; white-space: nowrap;letter-spacing: 2.5px;font-size: 16px; line-height: 22px; font-weight: 500; color: #eaeaef;font-family: 'Montserrat', sans-serif;text-transform: uppercase">Joyeux mariage</div>
-
-                    <!-- LAYER NR. 12 -->
-                    <div class="tp-caption  tp-resizeme rs-parallaxlevel-3"
-                         id="slide-2-layer-2"
-                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                         data-y="['middle','middle','middle','middle']" data-voffset="['-8','-12','-12','-12']"
-                         data-fontsize="['80','70','60','50']"
-                         data-width="none"
-                         data-height="none"
-                         data-whitespace="nowrap"
-
-                         data-type="text"
-                         data-responsive_offset="on"
-
-                         data-frames='[{"delay":10,"speed":2000,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power2.easeOut"},{"delay":"wait","speed":280,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
-                         data-textAlign="['inherit','inherit','inherit','inherit']"
-                         data-paddingtop="[0,0,0,0]"
-                         data-paddingright="[0,0,0,0]"
-                         data-paddingbottom="[0,0,0,0]"
-                         data-paddingleft="[0,0,0,0]"
-
-                         style="z-index: 6; white-space: nowrap; font-size: 60px; line-height: 16px; font-weight: 500; color: #ffffff; letter-spacing: 0px;font-family: 'Dancing Script', cursive;">Laurent & Ruth</div>
-
-                    <!-- LAYER NR. 13 -->
-                    <div class="tp-caption  tp-resizeme rs-parallaxlevel-2"
-                         id="slide-2-layer-3"
-                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                         data-y="['middle','middle','middle','middle']" data-voffset="['70','55','55','55']"
-                         data-fontsize="['22','20','20','20']"
-                         data-width="none"
-                         data-height="none"
-                         data-whitespace="nowrap"
-
-                         data-type="text"
-                         data-responsive_offset="on"
-
-                         data-frames='[{"delay":10,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":280,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
-                         data-textAlign="['inherit','inherit','inherit','inherit']"
-                         data-paddingtop="[0,0,0,0]"
-                         data-paddingright="[0,0,0,0]"
-                         data-paddingbottom="[0,0,0,0]"
-                         data-paddingleft="[0,0,0,0]"
-
-                         style="z-index: 7; white-space: nowrap; font-size: 18px; line-height: 40px; font-weight: 400; color: #eaeaef; font-family: 'Montserrat', sans-serif;letter-spacing: 1px;text-transform: uppercase;"> NOUS NOUS MARIONS</div>
-
-                </li>
-
-
-
-                <li data-index="rs-1" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb="assets/100x50_44515-slider-bg-3.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Slide 3" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
-                    <!-- MAIN IMAGE -->
-                    <img src="wedding/img/slider2.jpg"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" alt="slider-image" data-no-retina>
-                    <div class="slider-overlay"></div>
-                    <!-- LAYER NR. 11 -->
-                    <div class="tp-caption   tp-resizeme rs-parallaxlevel-1"
-                         id="slide-layer-1"
-                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                         data-y="['middle','middle','middle','middle']" data-voffset="['-80','-75','-74','-74']"
-                         data-fontsize="['18','16','16','16']"
-                         data-width="none"
-                         data-height="none"
-                         data-whitespace="nowrap"
-
-                         data-type="text"
-                         data-responsive_offset="on"
-
-                         data-frames='[{"delay":10,"speed":2000,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":280,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
-                         data-textAlign="['inherit','inherit','inherit','inherit']"
-                         data-paddingtop="[0,0,0,0]"
-                         data-paddingright="[0,0,0,0]"
-                         data-paddingbottom="[0,0,0,0]"
-                         data-paddingleft="[0,0,0,0]"
-
-                         style="z-index: 5; white-space: nowrap;letter-spacing: 2.5px;font-size: 16px; line-height: 22px; font-weight: 500; color: #eaeaef;font-family: 'Montserrat', sans-serif;text-transform: uppercase">Joyeux mariage</div>
-
-                    <!-- LAYER NR. 12 -->
-                    <div class="tp-caption   tp-resizeme rs-parallaxlevel-3"
-                         id="slide-layer-2"
-                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                         data-y="['middle','middle','middle','middle']" data-voffset="['-8','-12','-12','-12']"
-                         data-fontsize="['80','70','60','50']"
-                         data-width="none"
-                         data-height="none"
-                         data-whitespace="nowrap"
-
-                         data-type="text"
-                         data-responsive_offset="on"
-
-                         data-frames='[{"delay":10,"speed":2000,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power2.easeOut"},{"delay":"wait","speed":280,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
-                         data-textAlign="['inherit','inherit','inherit','inherit']"
-                         data-paddingtop="[0,0,0,0]"
-                         data-paddingright="[0,0,0,0]"
-                         data-paddingbottom="[0,0,0,0]"
-                         data-paddingleft="[0,0,0,0]"
-
-                         style="z-index: 6; white-space: nowrap; font-size: 60px; line-height: 16px; font-weight: 500; color: #ffffff; letter-spacing: 0px;font-family: 'Dancing Script', cursive;">Laurent & Ruth</div>
-
-                    <!-- LAYER NR. 13 -->
-                    <div class="tp-caption   tp-resizeme rs-parallaxlevel-2"
-                         id="slide-layer-3"
-                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                         data-y="['middle','middle','middle','middle']" data-voffset="['70','55','55','55']"
-                         data-fontsize="['22','20','20','20']"
-                         data-width="none"
-                         data-height="none"
-                         data-whitespace="nowrap"
-
-                         data-type="text"
-                         data-responsive_offset="on"
-
-                         data-frames='[{"delay":10,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":280,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
-                         data-textAlign="['inherit','inherit','inherit','inherit']"
-                         data-paddingtop="[0,0,0,0]"
-                         data-paddingright="[0,0,0,0]"
-                         data-paddingbottom="[0,0,0,0]"
-                         data-paddingleft="[0,0,0,0]"
-
-                         style="z-index: 7; white-space: nowrap; font-size: 18px; line-height: 40px; font-weight: 400; color: #eaeaef;font-family: 'Montserrat', sans-serif;letter-spacing: 1px;text-transform: uppercase;"> NOUS NOUS MARIONS</div>
-
-
-
-                </li>
-
-
-
-            </ul>
-            <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div></div>
-
-            
-
-        <!--SLIDER DOWN ARROW-->
-            <a class="navigate-arrow" href="#about-sec">
-                <i class="fas fa-chevron-down"></i>
-            </a>
-    </div><!-- END REVOLUTION SLIDER -->
-</div>
-<div class="aimated-cursor">
-    <div class="cursor">
-        <div class="cursor-loader"></div>
-    </div>
-</div>
-<!--slider sec end-->
-
-<!--About sec start-->
-<div class="about-sec" id="about-sec" style="background: url('wedding/img/speaker_bg.png');">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-6 text-center about-self">
-                <div class="about-heading">
-                    <span class="heading-subtitle">- Je suis Heureux -</span>
-                    <h2 class="heading-title">Laurent</h2>
-                </div>
-
-                <div class="about-image-holder">
-                    <img src="wedding/img/about-us-1.jpg" alt="Isabella  David">
-                </div>
-                <div class="about-img-des">
-                    <div class="inner-text">
-                    <p class="small-text">Je suis comblé de bonheur en épousant la femme de ma vie, celle qui fait battre mon cœur chaque jour un peu plus fort.</p>
-                    <span class="quote">~ J'aime Ruth ~</span>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-12 col-md-6 text-center about-self">
-                <div class="about-heading">
-                    <span class="heading-subtitle">- Plus que Joyeuse -</span>
-                    <h2 class="heading-title">Ruth</h2>
-                </div>
-
-                    <div class="about-image-holder">
-                        <img src="wedding/img/about-us-2.jpg" alt="Alex Ferdinand">
-                    </div>
-
-                    <div class="about-img-des">
-                        <div class="inner-text">
-                        <p class="small-text">Je suis ravie de m'unir à l'homme qui partage mes rêves et qui me rend heureuse au-delà des mots..</p>
-                        <span class="quote">~ J'aime Laurent ~</span>
-                        </div>
-                    </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!--About sec end-->
-
-<!--Counters sec Start-->
-
-<!--Counters sec end-->
-
-
-<!--Speaker sec start-->
-
-<div class="row">
-
-<div class="col-12">
-<h2 class="large-heading d-flex justify-content-center">Lieu  & date </h2>
-</div>	
-
-<div class="col-12">
-<h4 class="large-heading text-danger d-flex justify-content-center">-EGLISE SAINTE RITA-</h4>
-</div>	
-
-<div class="col-12">
-<h4 class="large-heading d-flex justify-content-center">SAMEDI 14 DEC 2024</h4>
-</div>	
-
-
-<div class="col-12">
-<h2 class="large-heading d-flex justify-content-center" style="color:#b6a85a"><b><i>A 12H </i></b></h2>
-</div>	
-
-
-</div>
-
-<!--Speaker sec end-->
-
-
-<!--stats sec start-->
-<div class="stats-sec" id="stats-sec" style="background: url('wedding/img/speaker_bg.png');">
-    <div class="container">
-
-	
-
-        <div class="row">
-            <div class="col-12 text-center timeline-heading">
-                <span class="sub-heading">Joingnez vous à nous</span>
-                <h4 class="large-heading">Soyez nos invités</h4>
-                <span class="fly-line"></span>
-            </div>
-        </div>
-
-    </div>
-
-
-<div class="col-12 mt-3 mb-3 text-center timeline-heading"> <button class="btn btn-danger" type="button" style="font-size: 20px; padding: 15px 30px;">Indiquez votre présence dans le formulaire</button></div>
-
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScSSqi05xA_F9qR1ovknPPGlKjBbLrt4eowaB8vIo7UNiDOWQ/viewform?embedded=true" width="640" height="1637" frameborder="0" marginheight="0" marginwidth="0">Chargement…</iframe>
-
-</div>
-<!--stats sec end-->
-
-<!--timeline sec start-->
-
-<!--timeline sec end-->
-
-
-
-
-<!--contact us sec start-->
-<div class="contact-sec mt-3" id="contact-sec" style="background-image: url('wedding/img/speaker_bg1.jpg')">
-        <div class="row no-gutters">
-
-            <div class="col-12 location-details-contact">
-                <div class="row no-gutters">
-
-                    <div class="col-12 col-md-4 loc-details">
-                        <div class="contact-box d-flex justify-content-center align-items-center">
-                            <div class="media">
-                                <i class="las la-city"></i>
-                                <div class="media-body">
-                                    <h5 class="mt-0"> Mairie </h5>
-                                    <p>EGLISE SAINTE RITA</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-md-4 loc-details">
-                        <div class="contact-box d-flex justify-content-center align-items-center">
-                            <div class="media">
-                                <i class="las la-phone"></i>
-                                <div class="media-body">
-                                    <h5 class="mt-0"> Téléphone </h5>
-                                    <p>07 69-300-328 / 07 49-294-644</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-md-4 loc-details">
-                        <div class="contact-box d-flex justify-content-center align-items-center">
-                            <div class="media">
-                                <i class="las la-map-marker"></i>
-                                <div class="media-body">
-                                    <h5 class="mt-0">Réception</h5>
-                                    <p>YOPOUGON à 14H30</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12">
-                <div id="" class="bg-light-gray "><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.584996342453!2d-4.099761288655053!3d5.327237294628968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc1c1ba65c0a383%3A0xb53fe8a9f2d0ffef!2sEglise%20Catholique%20Sainte%20Rita%20Niangon%20Nord!5e0!3m2!1sfr!2sci!4v1727274596716!5m2!1sfr!2sci" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
-            </div>
-        </div>
-</div>
-<!--contact us sec end-->
-
-
-<!--footer sec start-->
-<footer class="footer-sec" id="footer-sec">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 text-center mt-3">
-                <p class="company-about fadeIn">&copy; 2024. Fait avec le 🫶🏽 par <a href="javascript:void(0);" style="text-decoration:none;color:#000000;">Gue Guelamonsey Arthur Gildas - Tel: 07-67-071-914</a></p>
-            </div>
-
-        </div>
-    </div>
-</footer>
-<!--footer sec end-->
-
-
-<!--modal window contact form start-->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ticket Registeration</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body contact-sec">
-                <div class="contact-box">
-                    <div class="c-box wow fadeInRight">
-<!--                        <h4 class="heading">Ticket Registeration?</h4>-->
-<!--                        <p class="text-des">Lorem ipsum is simply dummy text of the printing and typesetting industry. </p>-->
-                        <form class="contact-form">
-                            <div class="row my-form">
-                                <div class="display-error"><span id="error"></span></div>
-                                <div class="col-12 col-md-6">
-                                    <input type="text" class="form-control" id="candidate_fname" name="candidate_fname" placeholder="Full Name" required="required">
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <input type="text" class="form-control" id="candidate_email" name="candidate_email" placeholder="Email" required="required">
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <input type="email" class="form-control" id="user_no" name="user_no" placeholder="Contact No" required="required">
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <select class="form-control" id="ticket_price" name="ticket_price" required="required">
-                                        <option class="form-control" value="">Select Ticket Price</option>
-                                        <option class="form-control" value="Early Bird - $20"> Early Bird - $20 </option>
-                                        <option class="form-control" value="Regular - $35"> Regular - $35 </option>
-                                        <option class="form-control" value="Vip - $58"> Vip - $58 </option>
-                                    </select>
-                                </div>
-                                <div class="col-12">
-                                    <input type="email" class="form-control" id="user_credit" name="user_credit" placeholder="Credit Card No" required="required">
-                                </div>
-                                <div class="col-12">
-                                    <textarea class="form-control" id="user_message" name="user_message" placeholder="Message" rows="7" required="required">Do You Have Any Question?</textarea>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn anim-btn rounded-pill user-contact" type="submit">Register Now
-                                        <span></span><span></span><span></span><span></span>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!--modal window contact form end-->
-
-
-<script src="./vendor/js/bundle.min.js"></script>
-<script src="./vendor/js/jquery.themepunch.tools.min.js"></script>
-<script src="./vendor/js/jquery.themepunch.revolution.min.js"></script>
-<script src="./vendor/js/jquery.cubeportfolio.min.js"></script>
-<!-- SLIDER REVOLUTION EXTENSIONS -->
-<script src="./vendor/js/extensions/revolution.extension.actions.min.js"></script>
-<script src="./vendor/js/extensions/revolution.extension.carousel.min.js"></script>
-<script src="./vendor/js/extensions/revolution.extension.kenburn.min.js"></script>
-<script src="./vendor/js/extensions/revolution.extension.layeranimation.min.js"></script>
-<script src="./vendor/js/extensions/revolution.extension.migration.min.js"></script>
-<script src="./vendor/js/extensions/revolution.extension.navigation.min.js"></script>
-<script src="./vendor/js/extensions/revolution.extension.parallax.min.js"></script>
-<script src="./vendor/js/extensions/revolution.extension.slideanims.min.js"></script>
-<script src="./vendor/js/extensions/revolution.extension.video.min.js"></script>
-<!-- SNOW ADD ON -->
-<script src="./vendor/js/extensions/revolution.addon.snow.min.js"></script>
-<script src="./vendor/js/TweenMax.min.js"></script>
-<script src="./wedding/js/countdown.js"></script>
-<script src="./vendor/js/parallaxie.min.js"></script>
-<script src="./vendor/js/owl.carousel.min.js"></script>
-<script src="./wedding/js/tilt.jquery.js"></script>
-<script src="./vendor/js/wow.min.js"></script>
-<!--counter js links-->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJScy7qJ156DWM8kJVG-ZrK0R7Kize2Jg "></script>
-<script src="./wedding/js/map.js"></script>
-<script src="./wedding/js/script.js"></script>
+  </div>
+
+  <div class="divider"></div>
+
+  <h2 class="rsvp-heading">Confirmez votre présence</h2>
+
+  <div class="rsvp-instruction">
+    <span class="ic">⚠️</span>
+    <span>Remplissez le formulaire ci-dessous, puis cliquez sur <strong>« Envoyer »</strong> tout en bas du formulaire pour valider votre confirmation.</span>
+  </div>
+
+  <div class="form-wrap" id="formWrap"></div>
+
+  <footer>
+    <span class="script">Arthur &amp; Dina</span>
+    Avec tout notre amour, merci de faire partie de notre histoire.
+  </footer>
+</main>
+
+<script>
+/* ===================== CONFIG ===================== */
+const CONFIG = {
+  // Lien d'intégration de votre Google Form (déjà configuré) :
+  googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSf0gZhu7Ml1OK7gtnnoZ0YZUc3BaJbgmJbaqJFBM3vLBFt8Uw/viewform?embedded=true",
+  formHeight: 620
+};
+/* ==================================================== */
+
+const formWrap = document.getElementById('formWrap');
+if(CONFIG.googleFormUrl){
+  const iframe = document.createElement('iframe');
+  iframe.src = CONFIG.googleFormUrl;
+  iframe.style.minHeight = CONFIG.formHeight + "px";
+  iframe.loading = "lazy";
+  iframe.title = "Confirmation de présence";
+  formWrap.appendChild(iframe);
+}
+
+// subtle rising gold dots
+const dots = document.getElementById('dots');
+for(let i=0;i<14;i++){
+  const d = document.createElement('div');
+  d.className = 'dot';
+  d.style.left = Math.random()*100 + '%';
+  d.style.animationDuration = (9 + Math.random()*10) + 's';
+  d.style.animationDelay = (Math.random()*10) + 's';
+  d.style.opacity = 0.25 + Math.random()*0.4;
+  dots.appendChild(d);
+}
+</script>
 </body>
 </html>
